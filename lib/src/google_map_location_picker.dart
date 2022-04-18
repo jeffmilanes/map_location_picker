@@ -164,7 +164,7 @@ class LocationPickerState extends State<LocationPicker> {
         : "";
 
     var endpoint =
-        "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$place$regionParam&key=${widget.apiKey}&sessiontoken=$sessionToken";
+        "https://pacific-retreat-57880.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$place$regionParam&key=${widget.apiKey}&sessiontoken=$sessionToken";
 
     if (locationResult != null) {
       endpoint += "&location=${locationResult?.latLng.latitude},"
@@ -223,7 +223,7 @@ class LocationPickerState extends State<LocationPicker> {
     clearOverlay();
 
     final endpoint =
-        "https://maps.googleapis.com/maps/api/place/details/json?key=${widget.apiKey}"
+        "https://pacific-retreat-57880.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${widget.apiKey}"
         "&placeid=$placeId"
         '&language=${widget.language}';
 
@@ -298,7 +298,7 @@ class LocationPickerState extends State<LocationPicker> {
   /// Fetches and updates the nearby places to the provided lat,lng
   void getNearbyPlaces(LatLng latLng) async {
     var endpoint =
-        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        "https://pacific-retreat-57880.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
         "key=${widget.apiKey}&"
         "location=${latLng.latitude},${latLng.longitude}&radius=150"
         "&language=${widget.language}";
@@ -343,7 +343,7 @@ class LocationPickerState extends State<LocationPicker> {
   /// to be the road name and the locality.
   Future reverseGeocodeLatLng(LatLng latLng) async {
     final endpoint =
-        "https://maps.googleapis.com/maps/api/geocode/json?latlng=${latLng.latitude},${latLng.longitude}"
+        "https://pacific-retreat-57880.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${latLng.latitude},${latLng.longitude}"
                 "&key=${widget.apiKey}" +
             "&language=${widget.language}";
 
