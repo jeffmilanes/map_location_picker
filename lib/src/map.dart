@@ -299,10 +299,15 @@ class MapPickerState extends State<MapPicker> {
   Future<Map<String, String>> getAddress(LatLng location) async {
     try {
       final endpoint =
-          'https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.latitude},${location.longitude}'
+          'https://pacific-retreat-57880.herokuapp.com/https://pacific-retreat-57880.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.latitude},${location.longitude}'
           '&key=${widget.apiKey}&language=${widget.language}';
 
-      final response = await http.get(Uri.parse(endpoint));
+      final response = await http.get(
+        Uri.parse(endpoint),
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      );
       logger.i(endpoint);
       logger.v(response.body);
       final json = jsonDecode(response.body);

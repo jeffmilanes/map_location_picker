@@ -174,6 +174,9 @@ class LocationPickerState extends State<LocationPicker> {
     try {
       final response = await http.get(
         Uri.parse(endpoint),
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
       );
       logger.i(endpoint);
       logger.v(response.body);
@@ -227,6 +230,9 @@ class LocationPickerState extends State<LocationPicker> {
     try {
       final response = await http.get(
         Uri.parse(endpoint),
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
       );
       logger.i(endpoint);
       logger.v(response.body);
@@ -297,7 +303,12 @@ class LocationPickerState extends State<LocationPicker> {
         "location=${latLng.latitude},${latLng.longitude}&radius=150"
         "&language=${widget.language}";
     try {
-      final response = await http.get(Uri.parse(endpoint));
+      final response = await http.get(
+        Uri.parse(endpoint),
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      );
 
       if (response.statusCode == 200) {
         nearbyPlaces.clear();
@@ -338,6 +349,9 @@ class LocationPickerState extends State<LocationPicker> {
 
     final response = await http.get(
       Uri.parse(endpoint),
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     );
 
     if (response.statusCode == 200) {
